@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 public class StoryLine {
@@ -41,14 +42,14 @@ public class StoryLine {
                 ░   ░   ░ ░ ░ ░ ▒       ░   ░    ░   ▒   ▒ ▒ ░░     ░ ░ ░ ▒   ░░░ ░ ░   ░      
                 ░          ░ ░         ░          ░  ░░ ░            ░ ░     ░              
                 ░                                   ░ ░                                 
-                """;
+                """+RESET;
 
         String[] lines = asciiArt.split("\n");
         for (int i = 0; i < lines.length; i++) {
             String line = lines[i];
             System.out.println(RED + "\t\t\t" + centerText(line, 80)); // Centering the ASCII art lines
         }
-        System.out.print("                                 KAMADAN                                          ALTREIA");
+        System.out.print(YELLOW+"                                 KAMADAN                                          ALTREIA"+RESET);
         String art = VIOLET+"""
 
                                                 ▄▄▄▄▄▄                    ▄▄▄▄▄▄                   ▄▄█████▄            ▄█████▄▄
@@ -75,7 +76,7 @@ public class StoryLine {
                             """+RESET;
                             System.out.println(art);
 
-            System.out.print("                                  SHANG                                         PALANGGA");
+            System.out.print(YELLOW+"                                  SHANG                                         PALANGGA"+RESET);
 
              String art1 = VIOLET+"""
 
@@ -156,6 +157,8 @@ public class StoryLine {
                 }
                 System.out.println(RESET);
     }
+
+    
     
     public void prologue() {
         System.out.println();
@@ -232,10 +235,11 @@ public class StoryLine {
         System.out.println(VIOLET+"                 ▄█▓▀██▌▀██▓╟█▄        "+RESET+"||"+YELLOW+"          ▄█▓▀██▌▀██▓╟█▄       "+RESET+"||"+RED+"           ▄█▓▀██▌▀██▓╟█▄                      "+RESET);
         System.out.println();
     }
+
     
     public void unlockKey(){
-        System.out.println("||                   Congratulations! You have scored an ID for taking down the minions in ThirdStreet.                   ||");
-        System.out.println("||                                      ID NUMBER: (6 - 3) 4 + 58 - 3 + (10 * 7 + 6)                                      ||");
+        System.out.println("||"+YELLOW+"                   Congratulations! You have scored an ID for taking down the minions in ThirdStreet.                   "+RESET+"||");
+        System.out.println("||"+YELLOW+"                                      ID NUMBER: (6 - 3) 4 + 58 - 3 + (10 * 7 + 6)                                      "+RESET+"||");
         System.out.println( "============================================================================================================================\n");
     }
     
@@ -246,13 +250,13 @@ public class StoryLine {
         while(true){
             try{
                 System.out.println("============================================================================================================================");
-                System.out.println("||                                   Enter your ID NUMBER to enter SI IT YOU? Kingdom                                     ||");
-                System.out.print("||                                                      ID NUMBER: ");
+                System.out.println("||"+YELLOW+"                                   Enter your ID NUMBER to enter SI IT YOU? Kingdom                                     "+RESET+"||");
+                System.out.print("||"+YELLOW+"                                                      ID NUMBER: "+RESET);
                 gate = scanner.nextInt(); 
                 return gate;
             }catch(Exception e){
                 scanner.next();
-                System.out.println("||                                          Invalid Input. Please Try Again.                                              ||");
+                System.out.println("||"+RED+"                                          Invalid Input. Please Try Again.                                              "+RESET+"||");
                 System.out.println("============================================================================================================================");
 
             }
@@ -275,6 +279,7 @@ public class StoryLine {
             \t\ta reward, Kamadan unlocked a new character, \"Altreia,\" to assist her on her journey. To enter 
             \t\tSI IT YOU?, she needed to input her ID number before entering the next kingdom.\n
         """);
+        altreiaUnlock();
     }
 
 
@@ -320,7 +325,7 @@ public class StoryLine {
     }
     
     public void thirdNarration(){
-        //shangUnlock();
+        shangUnlock();
         System.out.println("============================================================================================================================\n");
         simulateTyping("""
             \t\t\tFinally, Kamadan and her friends arrive at the grand gates of Si CS, where the ultimate  
@@ -548,6 +553,7 @@ public class StoryLine {
 
 
         public void altreiaUnlock(){
+            System.err.println();
             System.out.println("\t\t\t\t=========================================================================");
             System.out.println("\t\t\t\t||               Congratulations! You have now unlocked:               ||");
             System.out.println("\t\t\t\t||            █████╗ ██╗  ████████╗██████╗ ███████╗██╗ █████╗          ||");
@@ -557,9 +563,23 @@ public class StoryLine {
             System.out.println("\t\t\t\t||           ██║  ██║███████╗██║   ██║  ██║███████╗██║██║  ██║         ||");
             System.out.println("\t\t\t\t||           ╚═╝  ╚═╝╚══════╝╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝╚═╝  ╚═╝         ||");
             System.out.println("\t\t\t\t=========================================================================");
+
+
+            simulateTyping("""
+                \n
+            \t\t\tALTREIA'S BACKSTORY: 
+            \t\tA perfectionist, felt immense pressure and isolation from her high standards, refusing help and 
+            \t\tfeeling like a failure when she fell short. After struggling with a major coding challenge, she 
+            \t\tsought distraction and found “No Way Out: The Final Test” online. Intrigued by its promise of the 
+            \t\t“ultimate test,” she clicked the link and became trapped in a world reflecting her inner struggles.
+            \n
+
+        """);
+            
         }
     
         public void shangUnlock(){
+            System.err.println();
             System.out.println("\t\t\t\t=========================================================================");
             System.out.println("\t\t\t\t||               Congratulations! You have now unlocked:               ||");
             System.out.println("\t\t\t\t||            ███████╗██╗  ██╗ █████╗ ███╗   ██╗ ██████╗               ||");
@@ -569,6 +589,20 @@ public class StoryLine {
             System.out.println("\t\t\t\t||            ███████║██║  ██║██║  ██║██║ ╚████║╚██████╔╝              ||");
             System.out.println("\t\t\t\t||            ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝               ||");
             System.out.println("\t\t\t\t=========================================================================");
+
+
+            simulateTyping("""
+                \n
+            \t\t\tSHANG'S BACKSTORY: 
+            \t\ttTrained in martial arts and coding in a quiet town, blending her passions. During a late-night 
+            \t\tmeditation, she discovered an old scrollwith mysterious coding symbols. As she decoded it, the 
+            \t\tdigital world shifted, revealing a hidden game. Unlike others, she found it through her deep focus. 
+            \t\tHowever, the spirits of SI IT YOU? sensed her skills, trapping her in the kingdom. Now, she combines 
+            \t\ther combat and coding expertise to protect the kingdom's true knowledge and combat the spread of twisted lies.
+            \n
+
+        """);
+
         }
         public void gameover(){
             System.out.println(RED+" ░▒▓██████▓▒░ ░▒▓██████▓▒░░▒▓██████████████▓▒░░▒▓████████▓▒░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓████████▓▒░▒▓███████▓▒░  ");
